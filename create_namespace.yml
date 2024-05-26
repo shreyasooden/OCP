@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    namespace: demo
+    kubeconfig_path: kubeconfig 
+  tasks:
+    - name: Create a namespace
+      redhat.openshift.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Namespace
+          metadata:
+            name: "{{ namespace }}"
+
+    - name: Verify if namespace was created
+      redhat.openshift.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        kind: Namespace
+        name: "{{ namespace }}"
+      register: namespace_info
+
+    - name: Fail if namespace was not created
+      fail:
+        msg: "Namespace was not created"
+      when: namespace_info.result.metadata.name != namespace
+
+    - name: Print success message
+      debug:
+        msg: "Namespace was created successfully"
+      when: namespace_info.result.metadata.name == namespace
