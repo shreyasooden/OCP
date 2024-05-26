@@ -14,7 +14,7 @@
           kind: NetworkPolicy
           apiVersion: v1
           metadata:
-            name: allow-from-same-namespace
+            name: allow-from-openshift-ingress
             namespace: demo
           spec:
             podSelector:
