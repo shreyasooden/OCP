@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    namespace: demo
+    namespace: test
     kubeconfig_path: kubeconfig 
   tasks:
     - name: Deny all traffic from outside by default
