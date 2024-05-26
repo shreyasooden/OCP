@@ -10,7 +10,7 @@
     resource_requests_memory: 1  
   tasks:
     - name: Set Quota Limits and Requests
-      redhat.openshift.oc_process:
+      redhat.openshift.k8s:
         namespace: "{{ namespace }}"
         kind: ResourceQuota
         name: "{{ quota_name }}"
