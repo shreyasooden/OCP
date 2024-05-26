@@ -15,7 +15,7 @@
         kind: ResourceQuota
         name: conpute_quota
         action: apply
-        content:
+        definition:
           apiVersion: v1
           kind: ResourceQuota
           metadata:
