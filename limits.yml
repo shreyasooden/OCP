@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    namespace: demo
+    namespace: test
     kubeconfig_path: kubeconfig 
     resource_limits_cpu: 1
     resource_limits_memory: 1
