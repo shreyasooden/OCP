@@ -14,7 +14,7 @@
         namespace: "{{ namespace }}"
         kind: ResourceQuota
         name: conpute_quota
-        action: apply
+        state: present
         definition:
           apiVersion: v1
           kind: ResourceQuota
