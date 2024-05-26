@@ -13,7 +13,7 @@
       redhat.openshift.k8s:
         namespace: "{{ namespace }}"
         kind: ResourceQuota
-        name: "{{ quota_name }}"
+        name: conpute_quota
         action: apply
         content:
           apiVersion: v1
