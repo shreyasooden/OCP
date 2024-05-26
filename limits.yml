@@ -27,4 +27,4 @@
               limits.memory: "{{ resource_limits_memory }}"
               requests.cpu: "{{ resource_requests_cpu }}"
               requests.memory: "{{ resource_requests_memory }}"
-      delegate_to: localhost
+      #delegate_to: localhost
