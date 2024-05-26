@@ -11,6 +11,7 @@
   tasks:
     - name: Set Quota Limits and Requests
       redhat.openshift.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
         namespace: "{{ namespace }}"
         kind: ResourceQuota
         name: conpute_quota
