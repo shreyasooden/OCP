@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    namespace: demo
+    kubeconfig_path: kubeconfig 
+    resource_limits_cpu: 1
+    resource_limits_memory: 1
+    resource_requests_cpu: 1
+    resource_requests_memory: 1  
+  tasks:
+    - name: Set Quota Limits and Requests
+      redhat.openshift.oc_process:
+        namespace: "{{ namespace }}"
+        kind: ResourceQuota
+        name: "{{ quota_name }}"
+        action: apply
+        content:
+          apiVersion: v1
+          kind: ResourceQuota
+          metadata:
+            name: "{{ quota_name }}"
+          spec:
+            hard:
+              limits.cpu: "{{ resource_limits_cpu }}"
+              limits.memory: "{{ resource_limits_memory }}"
+              requests.cpu: "{{ resource_requests_cpu }}"
+              requests.memory: "{{ resource_requests_memory }}"
+      delegate_to: localhost
