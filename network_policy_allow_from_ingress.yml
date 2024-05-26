@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    namespace: demo
+    kubeconfig_path: kubeconfig 
+  tasks:
+    - name: Deny all traffic from outside by default
+      redhat.openshift.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        state: present
+        definition:
+          apiVersion: v1
+          kind: NetworkPolicy
+          apiVersion: v1
+          metadata:
+            name: allow-from-same-namespace
+            namespace: demo
+          spec:
+            podSelector:
+            ingress:
+            - from:
+              - podSelector: {}
