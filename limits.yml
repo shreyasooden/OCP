@@ -21,8 +21,10 @@
             name: compute-quota
           spec:
             hard:
-              limits.cpu: "{{ resource_limits_cpu }}"
-              limits.memory: "{{ resource_limits_memory }}"
-              requests.cpu: "{{ resource_requests_cpu }}"
-              requests.memory: "{{ resource_requests_memory }}"
+              - limits
+                 - cpu: "{{ resource_limits_cpu }}"
+                 - memory: "{{ resource_limits_memory }}"
+              - requests
+                  - cpu: "{{ resource_requests_cpu }}"
+                  - memory: "{{ resource_requests_memory }}"
       #delegate_to: localhost
