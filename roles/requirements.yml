@@ -1,0 +1,3 @@
+# myrole/meta/main.yml
+collections:
+  - community.general.htpasswd
