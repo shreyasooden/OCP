@@ -26,3 +26,4 @@
             podSelector: {}
             policyTypes:
             - Ingress
+      when : allow_from_openshift_monitoring in "{{ net_pol }}"
