@@ -21,4 +21,5 @@
             ingress:
             - from:
               - podSelector: {}
-      when : "allow_from_same_namespace in {{ net_pol }}"
+      when : >-
+        allow_from_same_namespace in "{{ net_pol }}"
