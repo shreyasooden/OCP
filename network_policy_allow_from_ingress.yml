@@ -5,7 +5,7 @@
     namespace: test
     kubeconfig_path: kubeconfig 
   tasks:
-    - name: Deny all traffic from outside by default
+    - name: Allow traffic from ingress
       redhat.openshift.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
         state: present
@@ -26,4 +26,4 @@
             podSelector: {}
             policyTypes:
             - Ingress
-      when : allow_from_same_namespace in "{{ net_pol }}"
+      when : allow_from_openshift_ingress in "{{ net_pol }}"
