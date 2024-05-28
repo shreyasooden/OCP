@@ -1,3 +1,4 @@
 # myrole/meta/main.yml
 collections:
-  -name: community.general
+  - name: community.general
+    version: 7.5.2
