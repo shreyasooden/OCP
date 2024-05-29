@@ -26,4 +26,5 @@
             podSelector: {}
             policyTypes:
             - Ingress
-      when : allow_from_openshift_ingress in "{{ net_pol }}"
+      when : >-
+        "allow_from_openshift_ingress in net_pol"
