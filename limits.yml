@@ -2,7 +2,6 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    namespace: test
     kubeconfig_path: kubeconfig 
     resource_limits_cpu: 1
     resource_limits_memory: 1
@@ -12,7 +11,7 @@
     - name: Set Quota Limits and Requests
       redhat.openshift.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
-        namespace: "{{ namespace }}"
+        namespace: "{{ project_name }}"
         state: present
         definition:
           apiVersion: v1
