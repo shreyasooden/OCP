@@ -1,12 +1,12 @@
 apiVersion: config.openshift.io/v1
-kind: OAuth
+kind:
 metadata:
   name: cluster
 spec:
   identityProviders:
-  - name: my_htpasswd_provider 
-    mappingMethod: claim 
-    type: HTPasswd
-    htpasswd:
-      fileData:
-        name: htpass-secret
+- name: htpasswd
+  mappingMethod: claim
+  type: HTPasswd
+  htpasswd:
+    fileData:
+      name: htpass-secret
