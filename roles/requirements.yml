@@ -1,4 +1,4 @@
-# myrole/meta/main.yml
+---
 collections:
   - name: ansible.posix
     version: 1.5.4
