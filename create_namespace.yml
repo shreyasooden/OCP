@@ -13,21 +13,21 @@
           apiVersion: v1
           kind: Namespace
           metadata:
-            name: "{{ namespace }}"
+            name: "{{ project_name }}"
 
     - name: Verify if namespace was created
       redhat.openshift.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
         kind: Namespace
-        name: "{{ namespace }}"
+        name: "{{ project_name }}"
       register: namespace_info
 
     - name: Fail if namespace was not created
       fail:
         msg: "Namespace was not created"
-      when: namespace_info.result.metadata.name != namespace
+      when: namespace_info.result.metadata.name != project_name
 
     - name: Print success message
       debug:
         msg: "Namespace was created successfully"
-      when: namespace_info.result.metadata.name == namespace
+      when: namespace_info.result.metadata.name == project_name
