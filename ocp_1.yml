@@ -1,0 +1,9 @@
+---
+
+- hosts: localhost
+  become: true
+  tasks:
+  
+    - name: "configuring ocp namespace"
+      include_role: 
+        name: ocp
