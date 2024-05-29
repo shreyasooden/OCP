@@ -2,7 +2,6 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    namespace: test
     kubeconfig_path: kubeconfig 
   tasks:
     - name: Deny all traffic from openshift monitoring
@@ -15,7 +14,7 @@
           apiVersion: v1
           metadata:
             name: allow-from-openshift-monitoring
-            namespace: "{{ namespace }}"
+            namespace: "{{ project_name }}"
           spec:
             podSelector:
             ingress:
