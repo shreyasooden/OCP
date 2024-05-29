@@ -15,7 +15,7 @@
           apiVersion: v1
           metadata:
             name: allow-from-same-namespace
-            namespace: "{{ namespace }}"
+            namespace: "{{ project_name }}"
           spec:
             podSelector:
             ingress:
