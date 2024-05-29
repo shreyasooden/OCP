@@ -2,7 +2,6 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    namespace: test
     kubeconfig_path: kubeconfig 
   tasks:
     - name: Allow traffic from ingress
@@ -15,7 +14,7 @@
           apiVersion: v1
           metadata:
             name: allow-from-openshift-ingress
-            namespace: "{{ namespace }}"
+            namespace: "{{ project_name }}"
           spec:
             podSelector:
             ingress:
