@@ -1,16 +1,19 @@
 ---
-- name: Configure HTPasswd identity provider in OpenShift
+- name: Check request status
   hosts: localhost
-  vars:
-     kubeconfig_path: kubeconfig
-     oauth_identity_provider: oauth_identity_provider.yml
-       
   tasks:
-  - name: reject Approval
-    shell: echo "Request Rejected"
+  - name: Check status of request
+    shell: echo "{{ request }}"
     register: out
+  - name: Approve Request
+    shell: echo "Request Rejected"
+    register: approved
+    when: >
+      "NO" in out.stdout
     delegate_to: 10.76.107.101
-  - name: Request Status
+  - name: Print Request Status
     debug:
-      msg: "{{ out.stdout }}"
+      msg: "{{ register.stdout }}"
+    when: >
+      "No" in out.stdout
   
