@@ -1,0 +1,11 @@
+---
+- name: Configure HTPasswd identity provider in OpenShift
+  hosts: localhost
+  vars:
+     kubeconfig_path: kubeconfig
+     oauth_identity_provider: oauth_identity_provider.yml
+       
+  tasks:
+  - name: Request Approved
+    shell: echo "Request Approved"
+    register: out
