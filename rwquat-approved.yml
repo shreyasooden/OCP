@@ -9,7 +9,7 @@
   - name: Request Approved
     shell: echo "Request Approved"
     register: out
-    when: "YES" in request
+    when: (YES in request)
     delegate_to: 10.76.107.101
   - name: Request Status
     debug: 
