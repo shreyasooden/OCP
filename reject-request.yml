@@ -13,7 +13,7 @@
     delegate_to: 10.76.107.101
   - name: Print Request Status
     debug:
-      msg: "{{ register.stdout }}"
+      msg: "{{ approved.stdout }}"
     when: >
       "No" in out.stdout
   
