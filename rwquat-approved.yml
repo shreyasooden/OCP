@@ -9,4 +9,7 @@
   - name: Request Approved
     shell: echo "Request Approved"
     register: out
-    delegate_to: localhost
+    delegate_to: 10.76.107.101
+  - name: Request Status
+    debug: 
+      msg: "{{ out.stdout }}"
