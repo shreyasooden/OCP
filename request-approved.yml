@@ -1,5 +1,5 @@
 ---
-- name:Approve Request
+- name: Approve Request
   hosts: localhost
   tasks:
   - name: Check status of request
