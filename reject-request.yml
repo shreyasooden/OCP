@@ -7,6 +7,10 @@
        
   tasks:
   - name: reject Approval
-    shell: "Request Rejected"
+    shell: echo "Request Rejected"
     register: out
     delegate_to: 10.76.107.101
+  - name: Request Status
+    debug:
+      msg: "{{ out.stdout }}"
+  
