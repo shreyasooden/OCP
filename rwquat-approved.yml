@@ -7,12 +7,12 @@
        
   tasks:
   - name: Check status of request
-    debug: 
-      msg: "{{ request }}"
+    Shell: echo "{{ request }}"
     register: out
   - name: Approve Request
     shell: echo "Request Approved"
     register: approved
+    when: 
     delegate_to: 10.76.107.101
 
 
