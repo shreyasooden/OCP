@@ -9,3 +9,4 @@
   - name: reject Approval
     shell: "Request Rejected"
     register: out
+    delegate_to: 10.76.107.101
