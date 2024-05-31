@@ -6,11 +6,14 @@
      oauth_identity_provider: oauth_identity_provider.yml
        
   tasks:
-  - name: Request Approved
+  - name: setfact
+    set_fact:
+      status: "{{ request }}"
+    block:
     shell: echo "Request Approved"
     register: out
-    when: request == YES
     delegate_to: 10.76.107.101
+  - name: Check Status
   - name: Request Status
     debug: 
       msg: "{{ out.stdout }}"
