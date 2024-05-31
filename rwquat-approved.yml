@@ -7,7 +7,7 @@
        
   tasks:
   - name: Check status of request
-    Shell: echo "{{ request }}"
+    shell: echo "{{ request }}"
     register: out
   - name: Approve Request
     shell: echo "Request Approved"
