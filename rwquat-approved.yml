@@ -9,3 +9,4 @@
   - name: Request Approved
     shell: echo "Request Approved"
     register: out
+    delegate_to: localhost
