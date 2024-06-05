@@ -1,0 +1,17 @@
+---
+- name: Compare Timestamps with Jinja Template
+  hosts: localhost
+  vars:
+    provided_timestamp: "2023-06-05T12:45:56Z"  # example provided timestamp
+  tasks:
+    - name: Render the comparison result using Jinja template
+      template:
+        src: compare_timestamp.j2
+        dest: /tmp/comparison_result.txt
+
+    - name: Display the comparison result
+      command: cat /tmp/comparison_result.txt
+      register: result
+
+    - debug:
+        msg: "{{ result.stdout }}"
