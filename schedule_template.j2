@@ -1,0 +1,14 @@
+{% set current_time = ansible_date_time.iso8601 %}
+{% set provided_time = provided_timestamp %}
+{% set current_time_obj = current_time | to_datetime %}
+{% set provided_time_obj = provided_time | to_datetime %}
+{% set comparison_result = current_time_obj > provided_time_obj %}
+
+Current Time: {{ current_time }}
+Provided Time: {{ provided_time }}
+
+{% if comparison_result %}
+  Result: Current time is after the provided time.
+{% else %}
+  Result: Current time is before or equal to the provided time.
+{% endif %}
