@@ -2,7 +2,7 @@
 - name: Compare Timestamps with Jinja Template
   hosts: localhost
   vars:
-    provided_timestamp: "2023-06-05T12:45:56Z"  # example provided timestamp
+    provided_timestamp: "2023-06-05 12:45:56"  # example provided timestamp
   tasks:
     - name: Render the comparison result using Jinja template
       template:
