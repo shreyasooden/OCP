@@ -1,17 +1,16 @@
 ---
 - name: Compare Timestamps with Jinja Template
   hosts: localhost
+  gather_facts: true
   vars:
     provided_timestamp: "2023-06-05 12:45:56Z"  # example provided timestamp
   tasks:
-    - name: Render the comparison result using Jinja template
-      template:
-        src: compare_timestamp.j2
-        dest: /tmp/comparison_result.txt
-
-    - name: Display the comparison result
-      command: cat /tmp/comparison_result.txt
-      register: result
-
-    - debug:
-        msg: "{{ result.stdout }}"
+    - name: check time from controller
+      shell: date "+%Y" ; date "+%m"; date "+%d"
+      register: new_date
+    - name: check time 1from controller
+      shell: date -d "+10 minutes" "+%M";
+      register: new_time
+    - name: get time from ansibledate time
+      debug: 
+        msg: {{ ansible_date_time.minute | int +15 | int }}
