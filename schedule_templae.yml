@@ -13,4 +13,4 @@
       register: new_time
     - name: get time from ansibledate time
       debug: 
-        msg: {{ ansible_date_time.minute | int +15 | int }}
+        msg: "{{ ansible_date_time.minute | int +15 | int }}"
